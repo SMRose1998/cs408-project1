@@ -36,7 +36,16 @@ public class TicTacToeModel {
         this.size = size;
         this.xTurn = true;
 
-        /* Create grid (width x width) as a 2D Mark array */
+        Mark[][] temp = new Mark[size][size];
+
+        //Init grid
+        for(int i = 0; i < size; i++){
+            for(int j = 0; j < size; j ++){
+                temp[i][j] = Mark.EMPTY;
+            }
+        }
+
+        grid = temp;
 
         //
         // INSERT YOUR CODE HERE
@@ -84,7 +93,8 @@ public class TicTacToeModel {
 
         // This method should return TRUE if the specified location is within bounds of the grid
 
-        return false; // this is a stub; delete it later!
+        return row <= getSize()-1 && col <= getSize()-1 &&
+                row>=0 && col >= 0;
 
     }
 

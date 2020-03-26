@@ -71,9 +71,9 @@ public class TicTacToeView extends AppCompatActivity {
 
             if (propertyValue instanceof TicTacToeSquare) {
 
-                //
-                // INSERT YOUR CODE HERE
-                //
+                TicTacToeSquare square = (TicTacToeSquare) propertyValue;
+                TextView newSquare = (TextView)findViewById(getSquareId(square));
+                newSquare.setText(controller.getMarkAsString(square));
 
             }
 
@@ -122,8 +122,8 @@ public class TicTacToeView extends AppCompatActivity {
         String s_coords = name.substring("Square".length(), name.length());
 
         // Parse to int
-        int col = Integer.valueOf(s_coords.charAt(0));
-        int row = Integer.valueOf(s_coords.charAt(1));
+        int col = Integer.valueOf(String.valueOf(s_coords.charAt(0)));
+        int row = Integer.valueOf(String.valueOf(s_coords.charAt(1)));
 
         // Create TicTacToe Obj
         TicTacToeSquare square = new TicTacToeSquare(col, row);
@@ -131,7 +131,7 @@ public class TicTacToeView extends AppCompatActivity {
         //Pass to Controller
         controller.processInput(square);
 
-        Toast.makeText(getBaseContext(), s_coords, Toast.LENGTH_SHORT).show(); // disable this later
+        //Toast.makeText(getBaseContext(), s_coords, Toast.LENGTH_SHORT).show(); // disable this later
 
 
 
