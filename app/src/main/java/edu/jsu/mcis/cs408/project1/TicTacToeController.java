@@ -33,11 +33,35 @@ public class TicTacToeController implements PropertyChangeListener {
         // be displayed in the View (using its "setResult()" method).
         //
 
-        // setModelProperty("Mark", square);
+        // Check that game is not over
+        if(model.getResult() == TicTacToeModel.Result.NONE){
+            setModelProperty("Mark", square);
+        }
+
+        //Check if game is over
+        if(model.getResult() != TicTacToeModel.Result.NONE){
+            view.setResult("Game is Done!");
+        }
+
+    }
+
+
+
+    protected void setModelProperty(String propertyName, Object newValue) {
 
         //
-        // INSERT YOUR CODE HERE
+        // This method is called when a View informs the Controller of a user interaction which
+        // requires a change to a Model. Using the property name, it identifies the corresponding
+        // setter method, and then invokes this method so that the Model can be updated properly.
         //
+
+        try {
+
+            Method method = model.getClass().getMethod("set" + propertyName, new Class[]{newValue.getClass()});
+            method.invoke(model, newValue);
+
+        }
+        catch (Exception e) { e.printStackTrace(); }
 
     }
 
@@ -81,24 +105,6 @@ public class TicTacToeController implements PropertyChangeListener {
         //
 
         view.modelPropertyChange(e);
-
-    }
-
-    protected void setModelProperty(String propertyName, Object newValue) {
-
-        //
-        // This method is called when a View informs the Controller of a user interaction which
-        // requires a change to a Model. Using the property name, it identifies the corresponding
-        // setter method, and then invokes this method so that the Model can be updated properly.
-        //
-
-        try {
-
-            Method method = model.getClass().getMethod("set" + propertyName, new Class[]{newValue.getClass()});
-            method.invoke(model, newValue);
-
-        }
-        catch (Exception e) { e.printStackTrace(); }
 
     }
 

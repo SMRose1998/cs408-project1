@@ -117,11 +117,23 @@ public class TicTacToeView extends AppCompatActivity {
         //
 
         String name = getViewName(v);
-        Toast.makeText(getBaseContext(), name, Toast.LENGTH_SHORT).show(); // disable this later
 
-        //
-        // INSERT YOUR CODE HERE
-        //
+        // Get the string coords of name
+        String s_coords = name.substring("Square".length(), name.length());
+
+        // Parse to int
+        int col = Integer.valueOf(s_coords.charAt(0));
+        int row = Integer.valueOf(s_coords.charAt(1));
+
+        // Create TicTacToe Obj
+        TicTacToeSquare square = new TicTacToeSquare(col, row);
+
+        //Pass to Controller
+        controller.processInput(square);
+
+        Toast.makeText(getBaseContext(), s_coords, Toast.LENGTH_SHORT).show(); // disable this later
+
+
 
     }
 

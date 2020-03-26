@@ -8,12 +8,27 @@
     tools:context=".TicTacToeView"
     tools:showIn="@layout/activity_main">
 
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/TopBoardGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.1" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/BottomBoardGuideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="539dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintGuide_percent="0.82" />
+
     <TextView
         android:id="@+id/Square00"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/cell_border"
@@ -28,15 +43,15 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TopBoardGuideline"
+        app:layout_constraintVertical_bias="0.49"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/Square01"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/cell_border"
@@ -50,15 +65,14 @@
         app:layout_constraintEnd_toStartOf="@+id/Square02"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Square00"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TopBoardGuideline"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/Square02"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/cell_border"
@@ -72,13 +86,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Square01"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/TopBoardGuideline"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
         android:id="@+id/Square10"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -99,8 +113,8 @@
 
     <TextView
         android:id="@+id/Square11"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -120,8 +134,8 @@
 
     <TextView
         android:id="@+id/Square12"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
@@ -141,12 +155,11 @@
 
     <TextView
         android:id="@+id/Square20"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/cell_border"
         android:clickable="true"
         android:focusable="true"
@@ -154,7 +167,7 @@
         android:onClick="onClick"
         android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/BottomBoardGuideline"
         app:layout_constraintEnd_toStartOf="@+id/Square21"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintHorizontal_chainStyle="packed"
@@ -163,12 +176,11 @@
 
     <TextView
         android:id="@+id/Square21"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/cell_border"
         android:clickable="true"
         android:focusable="true"
@@ -176,7 +188,7 @@
         android:onClick="onClick"
         android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/BottomBoardGuideline"
         app:layout_constraintEnd_toStartOf="@+id/Square22"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Square20"
@@ -184,12 +196,11 @@
 
     <TextView
         android:id="@+id/Square22"
-        android:layout_width="128dp"
-        android:layout_height="128dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
         android:background="@drawable/cell_border"
         android:clickable="true"
         android:focusable="true"
@@ -197,7 +208,7 @@
         android:onClick="onClick"
         android:textAlignment="center"
         android:textSize="36sp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/BottomBoardGuideline"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/Square21"

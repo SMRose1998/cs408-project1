@@ -61,9 +61,20 @@ public class TicTacToeModel {
         int row = square.getRow();
         int col = square.getCol();
 
-        //
-        // INSERT YOUR CODE HERE
-        //
+       if(isValidSquare(row, col)){
+           if(!isSquareMarked(row, col)){
+               if(xTurn){
+                   grid[row][col] = Mark.X;
+               }else{
+                   grid[row][col] = Mark.O;
+               }
+
+               firePropertyChange(TicTacToeController.SET_SQUARE_O,null, new TicTacToeSquare(row,col));
+
+               xTurn = !xTurn;
+               return true;
+           }
+       }
 
         return false;
 
