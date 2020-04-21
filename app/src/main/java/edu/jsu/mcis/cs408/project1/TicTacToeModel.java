@@ -122,19 +122,54 @@ public class TicTacToeModel {
         // is a TIE.  If neither condition applies, return a default value of NONE.
         //
 
+        if(isMarkWin(Mark.X)){
+            return Result.X;
+        }
+        else if(isMarkWin(Mark.O)){
+            return Result.O;
+        }
+
         return Result.NONE;
 
     }
 
     private boolean isMarkWin(Mark mark) {
-
         //
         // This method should check the squares of the grid to see if the specified Mark is the
         // winner.  (Hint: this method must check for complete rows, columns, and diagonals, using
         // an algorithm which will work for all possible grid sizes!)
-        //
 
+        boolean d1 = true;
+        boolean d2 = true;
+
+        for(int i=0; i<getSize(); i++){
+            if(!grid[i][i].equals(mark)){
+                d1 = false;
+            }
+            if(!grid[i][getSize() -1 -i].equals(mark)){
+                d2 = false;
+            }
+
+            boolean vert, hor;
+            vert = hor = true;
+            for(int j = 0; j<getSize(); j++){
+                if(!grid[i][j].equals(mark)){
+                    hor = false;
+                }
+                if(!grid[j][i].equals(mark)){
+                    vert =false;
+                }
+            }
+            if(hor || vert){
+                return true;
+            }
+        }
+        if(d1 || d2) {
+            return true;
+        }
         return false; // this is a stub; delete it later!
+
+
 
     }
 
@@ -143,8 +178,15 @@ public class TicTacToeModel {
         //
         // This method should check the squares of the grid to see if the game is a tie.
         //
+        for(int i = 0; i<getSize();i++){
+            for(int j = 0; j<getSize();j++){
+                if(grid[i][j].equals(Mark.EMPTY)){
+                    return false;
+                }
+            }
+        }
 
-        return false; // this is a stub; delete it later!
+        return true; // this is a stub; delete it later!
 
     }
 
